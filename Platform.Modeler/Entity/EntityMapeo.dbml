@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ejemploConexionBD" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-92V359R\SQLEXPRESS;Initial Catalog=ejemploConexionBD;Persist Security Info=True;User ID=sa" SettingsObjectName="Platform.Modeler.Properties.Settings" SettingsPropertyName="ejemploConexionBDConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.estudiante" Member="estudiante">
+    <Type Name="estudiante">
+      <Column Name="codigo" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="apellido" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="edad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="carrera" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="semestre" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="estudiante_pagos" Member="pagos" ThisKey="codigo" OtherKey="codigo_estudiante" Type="pagos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pagos" Member="pagos">
+    <Type Name="pagos">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="monto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="codigo_estudiante" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="estudiante_pagos" Member="estudiante" ThisKey="codigo_estudiante" OtherKey="codigo" Type="estudiante" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

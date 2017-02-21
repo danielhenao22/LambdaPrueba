@@ -42,6 +42,7 @@
             this.jBCondWhere.TabIndex = 0;
             this.jBCondWhere.Text = "Where";
             this.jBCondWhere.UseVisualStyleBackColor = true;
+            this.jBCondWhere.Click += new System.EventHandler(this.jBCondWhere_Click);
             // 
             // jBCondSelect
             // 
